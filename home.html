@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Homepage</title>
+
+    <!-- Added Daisy UI CDN -->
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+
+    <!-- Added Tailwind CSS CDN -->
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+
+    <!-- Added External CSS File -->
+    <link rel="stylesheet" href="Styles/style.css">
+
+    <!-- Added Google Font -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Manrope:wght@200..800&family=Outfit:wght@100..900&display=swap" rel="stylesheet">
+
+    <!-- Added Font Awesome CDN -->
+    <script src="https://kit.fontawesome.com/5d7fc64a6a.js" crossorigin="anonymous"></script>
+
+</head>
+<body class="max-w-[450px] h-[100vh] mx-auto bg-[#f4f5f7] flex flex-col">
+    <div class="common-part w-[445px] mx-auto bg-white rounded-b-2xl">
+        <section class="profile px-[24px] pt-[24px] pb-[12px] flex justify-between items-center border-b border-[#0808081a]">
+            <div class="logo-balance flex gap-1">
+                <div class="logo w-[3rem] h-[3rem]">
+                    <img src="Payoo-MFS-Resources/assets/Group.png" alt="Logo">
+                </div>
+            </div>
+            <div class="balance">
+                <h1 class="dollar text-[18px] font-extrabold">$<span>45000</span></h1>
+                <p class="balance-desk text-[#08080880] text-[14px]">Available Balance</p>
+            </div>
+            <div class="log-out">
+                <button type="reset" class="btn border-[#0808081a] rounded-[8px] text-[#08080880]">Log out<i class="fa-solid fa-arrow-right-from-bracket"></i></button>
+            </div>
+        </section>
+
+        <section class="welcome p-[24px]">
+            <h1 class="flex items-center font-bold text-[24px]"><img src="Payoo-MFS-Resources/assets/flames.png" alt="" class="h-[28px] w-[28px]">Welcome to Payooo!</h1>
+            <p class="welcome-desc text-[#08080880] text-[16px] mt-[12px]">Enjoy easy and convenient financial services with us. Cashout charge is low</p>
+        </section>
+
+        <section class="service-menu p-[24px] pt-[0] grid grid-cols-3 gap-5">
+            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center">
+                <img src="Payoo-MFS-Resources/assets/wallet1.png" alt="Add_money">
+                <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Add Money</h4>
+            </div>
+            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center">
+                <img src="Payoo-MFS-Resources/assets/send1.png" alt="Cash-out">
+                <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Cashout</h4>
+            </div>
+            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center">
+                <img src="Payoo-MFS-Resources/assets/money1.png" alt="Transfer">
+                <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Transfer Money</h4>
+            </div>
+            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center">
+                <img src="Payoo-MFS-Resources/assets/bonus1.png" alt="Bonus">
+                <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Get Bonus</h4>
+            </div>
+            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center">
+                <img src="Payoo-MFS-Resources/assets/purse1.png" alt="Bil Paying">
+                <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Pay Bill</h4>
+            </div>
+            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center">
+                <img src="Payoo-MFS-Resources/assets/transaction1.png" alt="Transaction">
+                <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Transactions</h4>
+            </div>
+        </section>
+    </div>
+</body>
+</html>
