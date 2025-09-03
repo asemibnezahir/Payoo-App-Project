@@ -16,19 +16,29 @@ function displayORNot(secName)
     document.getElementById(secName).classList.remove('hidden');
     document.getElementById(secName).classList.add('block');
 }
-
+function focusMenu(menuName)
+{
+    const buttoncardcards = document.getElementsByClassName('menu-card');
+    for(let buttoncard of buttoncardcards)
+    {
+        buttoncard.classList.add('text-[#080808b3]', 'font-normal');
+        buttoncard.classList.remove('menu-button');
+    }
+    document.getElementById(menuName).classList.add('menu-button');
+    document.getElementById(menuName).classList.remove('text-[#080808b3]', 'font-normal');
+}
 // Menu Clicking Interactions Optimized
-document.getElementById('money-adding-menu').addEventListener('click',function(){displayORNot('add_money');})
+document.getElementById('money-adding-menu').addEventListener('click',function(){displayORNot('add_money'); focusMenu('money-adding-menu')})
 
-document.getElementById('cashout-menu').addEventListener('click',function(){displayORNot('cash-out');})
+document.getElementById('cashout-menu').addEventListener('click',function(){displayORNot('cash-out'); focusMenu('cashout-menu')})
 
-document.getElementById('transfer-menu').addEventListener('click',function(){displayORNot('transfer');})
+document.getElementById('transfer-menu').addEventListener('click',function(){displayORNot('transfer'); focusMenu('transfer-menu')})
 
-document.getElementById('bonus-menu').addEventListener('click',function(){displayORNot('bonus');})
+document.getElementById('bonus-menu').addEventListener('click',function(){displayORNot('bonus'); focusMenu('bonus-menu')})
 
-document.getElementById('pay-bill-menu').addEventListener('click',function(){displayORNot('pay-bill');})
+document.getElementById('pay-bill-menu').addEventListener('click',function(){displayORNot('pay-bill'); focusMenu('pay-bill-menu')})
 
-document.getElementById('transaction-history-menu').addEventListener('click',function(){displayORNot('transaction-history');})
+document.getElementById('transaction-history-menu').addEventListener('click',function(){displayORNot('transaction-history'); focusMenu('transaction-history-menu')})
 
 
 

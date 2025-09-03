@@ -21,3 +21,12 @@
   background-color: white;
   margin-bottom: 16px;
 }
+
+
+/* For Menu Button Focusing */
+.menu-button{
+  background-color: #0874f20d;
+  border: 2px solid #0874f2;
+  color: #0874f2;
+  font-weight: bolder;
+}
