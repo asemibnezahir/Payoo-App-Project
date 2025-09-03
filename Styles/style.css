@@ -10,3 +10,14 @@
 .menu-card:active{
   border: 3px solid black;
 }
+
+.history-card-in-js{
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 16px;
+  border: 1px solid #0808081a; 
+  border-radius: 12px; 
+  background-color: white;
+  margin-bottom: 16px;
+}

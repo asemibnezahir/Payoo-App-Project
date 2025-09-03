@@ -23,7 +23,7 @@
     <script src="https://kit.fontawesome.com/5d7fc64a6a.js" crossorigin="anonymous"></script>
 
 </head>
-<body class="max-w-[450px] mx-auto bg-[#f4f5f7] flex flex-col">
+<body class="max-w-[450px] min-h-[100vh] mx-auto bg-[#f4f5f7] flex flex-col">
     <div class="common-part w-[445px] mx-auto bg-white rounded-b-2xl">
         <section class="profile px-[24px] pt-[24px] pb-[12px] flex justify-between items-center border-b border-[#0808081a]">
             <div class="logo-balance flex gap-1">
@@ -47,26 +47,26 @@
 
         <section class="service-menu p-[24px] pt-[0] grid grid-cols-3 gap-5">
             <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center" id="money-adding-menu">
-                <img src="Payoo-MFS-Resources/assets/wallet1.png" alt="Add_money">
+                <img src="Payoo-MFS-Resources/assets/wallet1.png" alt="Add_money" id="service-icon1">
                 <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Add Money</h4>
             </div>
             <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center" id="cashout-menu">
-                <img src="Payoo-MFS-Resources/assets/send1.png" alt="Cash-out">
+                <img src="Payoo-MFS-Resources/assets/send1.png" alt="Cash-out" id="service-icon2">
                 <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Cashout</h4>
             </div>
-            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center">
-                <img src="Payoo-MFS-Resources/assets/money1.png" alt="Transfer">
+            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center" id="transfer-menu">
+                <img src="Payoo-MFS-Resources/assets/money1.png" alt="Transfer" id="service-icon3">
                 <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Transfer Money</h4>
             </div>
-            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center">
-                <img src="Payoo-MFS-Resources/assets/bonus1.png" alt="Bonus">
+            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center" id="bonus-menu">
+                <img src="Payoo-MFS-Resources/assets/bonus1.png" alt="Bonus" id="service-icon4">
                 <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Get Bonus</h4>
             </div>
-            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center">
-                <img src="Payoo-MFS-Resources/assets/purse1.png" alt="Bil Paying">
+            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center" id="pay-bill-menu">
+                <img src="Payoo-MFS-Resources/assets/purse1.png" alt="Bil Paying" id="service-icon5">
                 <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Pay Bill</h4>
             </div>
-            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center">
+            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center" id="transaction-history-menu">
                 <img src="Payoo-MFS-Resources/assets/transaction1.png" alt="Transaction">
                 <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Transactions</h4>
             </div>
@@ -75,7 +75,7 @@
 
 
     <!-- Add Money Portion -->
-    <div id="add_money" class="p-[24px]">
+    <div id="add_money" class="p-[24px]" style="display: none;">
         <h1 class="font-semibold text-[18px] text-[#080808e6] mb-[16px]">Add Money</h1>
         <form class="bg-white w-[402px] mx-auto rounded-[24px] p-[32px] ">
 
@@ -119,6 +119,77 @@
         </form>
     </div>
 
+
+    <!-- Money Transfer Portion -->
+    <div id="transfer" class="p-[24px]" style="display: none;">
+        <h1 class="font-semibold text-[18px] text-[#080808e6] mb-[16px]">Transfer Money</h1>
+        <form class="bg-white w-[402px] mx-auto rounded-[24px] p-[32px] ">
+
+            <label for="user-number" class="text-[16px] font-medium text-[#080808b3]">User Account Number</label><br>
+            <input type="number" placeholder="Enter 11 digit number" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="user-number"/><br>
+            
+            <label for="transfer-amount" class="text-[16px] font-medium text-[#080808b3]">Amount</label><br>
+            <input type="number" placeholder="Enter amount to transfer" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="transfer-amount"/><br>
+            
+            <label for="bank-pin-transfer" class="text-[16px] font-medium text-[#080808b3]">Pin Number</label><br>
+            <input type="password" placeholder="Enter 4 Digit Pin Number" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="bank-pin-transfer"/><br>
+            
+            <button class="btn btn-active font-semibold text-[20px] py-[16px] text-center w-[338px] mx-auto rounded-[32px] bg-[#0874F2] text-white" id="transfer-btn">Send Now</button>
+        </form>
+    </div>
+
+
+    <!-- Get Bonus Portion -->
+    <div id="bonus" class="p-[24px]" style="display: none;">
+        <h1 class="font-semibold text-[18px] text-[#080808e6] mb-[16px]">Get Bonus</h1>
+        <form class="bg-white w-[402px] mx-auto rounded-[24px] p-[32px] ">
+
+            <label for="bonus-coupon" class="text-[16px] font-medium text-[#080808b3]">Enter Bonus Coupon</label><br>
+            <input type="text" placeholder="Enter your coupon" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="bonus-coupon"/><br>
+            
+            <button class="btn btn-active font-semibold text-[20px] py-[16px] text-center w-[338px] mx-auto rounded-[32px] bg-[#0874F2] text-white" id="bonus-btn">Get Bonus</button>
+        
+        </form>
+    </div>
+
+
+    <!-- Bill Paying Portion -->
+    <div id="pay-bill" class="p-[24px]" style="display: none;">
+        <h1 class="font-semibold text-[18px] text-[#080808e6] mb-[16px]">Pay Bill</h1>
+        <form class="bg-white w-[402px] mx-auto rounded-[24px] p-[32px] ">
+
+            <label for="pay-bill-select" class="text-[16px] font-medium text-[#080808b3]">Select To Pay</label><br>
+            <select class="select select-neutral rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0 text-[#080808b3] " id="Add-Select">
+                <option disabled selected value="a">Select Bill Type</option>
+                <option>Current Bill</option>
+                <option>Gas Bill</option>
+                <option>Wifi Bill</option>
+            </select>
+
+            <label for="billar-acc-number" class="text-[16px] font-medium text-[#080808b3]">Biller Account Number</label><br>
+            <input type="number" placeholder="Enter 11 digit account number" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="billar-acc-number"/><br>
+            
+            <label for="bill-amount" class="text-[16px] font-medium text-[#080808b3]">Amount to Pay</label><br>
+            <input type="number" placeholder="Add Amount to pay" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="bill-amount"/><br>
+            
+            <label for="bank-pin-for-bill" class="text-[16px] font-medium text-[#080808b3]">Pin Number</label><br>
+            <input type="password" placeholder="Enter 4 Digit Pin Number" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="bank-pin-for-bill"/><br>
+            
+            <button class="btn btn-active font-semibold text-[20px] py-[16px] text-center w-[338px] mx-auto rounded-[32px] bg-[#0874F2] text-white" id="bill-btn">Pay Now</button>
+        </form>
+    </div>
+
+
+    <!-- Transaction Portion -->
+    <div id="transaction-history" class="p-[24px]" >
+        <div class="heading flex justify-between items-center mb-[16px]">
+            <h1 class="font-semibold text-[18px] text-[#080808e6] mb-[16px]">Transaction History</h1>
+            <p class="text-[14px] text-[#08080880]">View All</p>
+        </div>
+        <div id="history-card-container">
+            
+        </div>
+    </div>
 
     <!-- Adding External Javascript File -->
     <script src="JS/home.js"></script>

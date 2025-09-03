@@ -1,17 +1,109 @@
 document.getElementById('money-adding-menu').addEventListener('click',function(){
     document.getElementById('add_money').style.display='block';
     document.getElementById('cash-out').style.display='none';
-
+    document.getElementById('transfer').style.display='none';
+    document.getElementById('bonus').style.display='none';
+    document.getElementById('pay-bill').style.display='none';
+    document.getElementById('transaction-history').style.display='none';
 })
 
 document.getElementById('cashout-menu').addEventListener('click',function(){
-    document.getElementById('cash-out').style.display='block';
     document.getElementById('add_money').style.display='none';
+    document.getElementById('cash-out').style.display='block';
+    document.getElementById('transfer').style.display='none';
+    document.getElementById('bonus').style.display='none';
+    document.getElementById('pay-bill').style.display='none';
+    document.getElementById('transaction-history').style.display='none';
+})
+
+document.getElementById('transfer-menu').addEventListener('click',function(){
+    document.getElementById('cash-out').style.display='none';
+    document.getElementById('add_money').style.display='none';
+    document.getElementById('transfer').style.display='block';
+    document.getElementById('bonus').style.display='none';
+    document.getElementById('pay-bill').style.display='none';
+    document.getElementById('transaction-history').style.display='none';
+})
+
+document.getElementById('bonus-menu').addEventListener('click',function(){
+    document.getElementById('cash-out').style.display='none';
+    document.getElementById('add_money').style.display='none';
+    document.getElementById('transfer').style.display='none';
+    document.getElementById('bonus').style.display='block';
+    document.getElementById('pay-bill').style.display='none';
+    document.getElementById('transaction-history').style.display='none';
+})
+
+document.getElementById('pay-bill-menu').addEventListener('click',function(){
+    document.getElementById('cash-out').style.display='none';
+    document.getElementById('add_money').style.display='none';
+    document.getElementById('transfer').style.display='none';
+    document.getElementById('bonus').style.display='none';
+    document.getElementById('pay-bill').style.display='block';
+    document.getElementById('transaction-history').style.display='none';
+})
+
+document.getElementById('transaction-history-menu').addEventListener('click',function(){
+    document.getElementById('cash-out').style.display='none';
+    document.getElementById('add_money').style.display='none';
+    document.getElementById('transfer').style.display='none';
+    document.getElementById('bonus').style.display='none';
+    document.getElementById('pay-bill').style.display='none';
+    document.getElementById('transaction-history').style.display='block';
 })
 
 
-if(window.getComputedStyle(document.getElementById('add_money')).display!=='none')
-{
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+// Transaction History Adding Feature 
+const transactionData =[];
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+    // Add Money Section After Click
     document.getElementById("add-submit").addEventListener('click',function(event){
     event.preventDefault();
     const myAccountNumber = '01788943691';
@@ -40,6 +132,14 @@ if(window.getComputedStyle(document.getElementById('add_money')).display!=='none
         else{
             const finalMoney = savedMoney + addedMoney;
             document.getElementById('stored-amount').innerText = finalMoney;
+
+            // for History
+            const data ={
+                ima: document.getElementById('service-icon1').outerHTML,
+                Name: 'Add Money',
+                timeNow: new Date().toLocaleTimeString()
+            }
+            transactionData.push(data);
         }
     }
     else
@@ -47,10 +147,19 @@ if(window.getComputedStyle(document.getElementById('add_money')).display!=='none
         alert('Something went wrong, Try Again Later');
     }
 })
-}
 
 
-else if(window.getComputedStyle(document.getElementById('cash-out')).display==='none'){
+
+
+
+
+
+
+
+
+
+
+// Cash Out Section After Click
     document.getElementById("withdraw-btn").addEventListener('click',function(e){
         e.preventDefault();
         const amountOnAccount = document.getElementById('stored-amount').innerText;
@@ -79,6 +188,184 @@ else if(window.getComputedStyle(document.getElementById('cash-out')).display==='
         {
             const finalAmount = parseInt(amountOnAccount)-parseInt(withdrawalAmount);
             document.getElementById('stored-amount').innerText=finalAmount;
+
+            // for History
+            const data ={
+                ima: document.getElementById('service-icon2').outerHTML,
+                Name: 'Cash Out',
+                timeNow: new Date().toLocaleTimeString()
+            }
+            transactionData.push(data);
+        }
+    })
+
+
+
+
+
+
+
+
+
+
+// Transfer Money Section After Click
+    document.getElementById("transfer-btn").addEventListener('click',function(e){
+        e.preventDefault();
+        const amountOnAccount = document.getElementById('stored-amount').innerText;
+        const myPinNumber ='1747';
+
+        const enteredUserNumber = document.getElementById('user-number').value;
+        const transferAmount = document.getElementById('transfer-amount').value;
+        const enteredPinNumber = document.getElementById('bank-pin-transfer').value;
+        if(enteredUserNumber.length!==11)
+        {
+            alert('Please Enter a Valid User number');
+        }
+        else if(isNaN(parseInt(transferAmount))===true || parseInt(transferAmount)<=0)
+        {
+            alert('Please Enter a valid amount');
+        }
+        else if(parseInt(transferAmount)>parseInt(amountOnAccount))
+        {
+            alert('Insufficient Balance');
+        }
+        else if(enteredPinNumber!==myPinNumber)
+        {
+            alert('Incorrect Pin Number');
+        }
+        else
+        {
+            const finalAmount = parseInt(amountOnAccount)-parseInt(transferAmount);
+            document.getElementById('stored-amount').innerText=finalAmount;
+
+            // for History
+            const data ={
+                ima: document.getElementById('service-icon3').outerHTML,
+                Name: 'Transfer Money',
+                timeNow: new Date().toLocaleTimeString()
+            }
+            transactionData.push(data);
+        }
+    })
+
+
+
+
+
+
+
+
+// Get Bonus Section
+{
+    document.getElementById("bonus-btn").addEventListener('click',function(e){
+        e.preventDefault();
+        const amountNumberOnAccount = parseInt(document.getElementById('stored-amount').innerText);
+        const realCoupon = '1A58H6D4';
+        const enteredCode = document.getElementById('bonus-coupon').value;
+        if(enteredCode===realCoupon)
+        {
+            alert('Congratulations, You have got $1000 Bonus');
+            const finalAmount = amountNumberOnAccount + 1000;
+            document.getElementById('stored-amount').innerText = finalAmount;
+            // for History
+            const data ={
+                ima: document.getElementById('service-icon4').outerHTML,
+                Name: 'Bonus',
+                timeNow: new Date().toLocaleTimeString()
+            }
+            transactionData.push(data);
+        }
+        else
+        {
+            alert('Sorry! This coupon is not available');
         }
     })
 }
+
+
+
+
+
+
+
+
+
+
+
+
+// Pay Bill Section After Click
+    document.getElementById("bill-btn").addEventListener('click',function(event){
+    event.preventDefault();
+
+    const amountOnAccount = document.getElementById('stored-amount').innerText;
+    const myPinNumber ='1747';
+
+    const selectBillType = document.getElementById('Add-Select').value;
+    const billarAccountNumber = document.getElementById('billar-acc-number').value;
+    const pinNumber = document.getElementById('bank-pin-for-bill').value;
+    const billAmount = document.getElementById('bill-amount').value;
+
+    if(billarAccountNumber.length!==11)
+    {
+        alert('Please Enter a Valid User number');
+    }
+    else if(selectBillType==="a")
+    {
+        alert('Please Select the Bill Type First');
+    }
+    else if(pinNumber!==myPinNumber)
+    {
+        alert('Incorrect PIN Number');
+    }
+    else if(isNaN(parseInt(billAmount))===true || parseInt(billAmount)<=0)
+    {
+        alert('Please Enter a valid amount');
+    }
+    else if(parseInt(billAmount)>parseInt(amountOnAccount))
+    {
+        alert('Insufficient Balance');
+    }
+    else
+    {
+        const finalMoney = parseInt(amountOnAccount) - parseInt(billAmount);
+        document.getElementById('stored-amount').innerText = finalMoney;
+        alert('Your' + selectBillType + ' Payment $' + billAmount + ' is successful. Current Balance is $' + finalMoney);
+        // for History
+        const data ={ 
+            ima: document.getElementById('service-icon5').outerHTML,
+            Name: selectBillType,
+            timeNow: new Date().toLocaleTimeString(),
+        }
+        transactionData.push(data);
+    }
+})
+
+
+
+// Completing the history adding
+    document.getElementById('transaction-history-menu').addEventListener('click',function(ev){
+    ev.preventDefault();
+    const cardContainer = document.getElementById('history-card-container');
+    cardContainer.innerHTML = "";
+    for(let i=transactionData.length-1;i>=0;i--)
+    {
+        const data = transactionData[i];
+        const historyDiv = document.createElement('div');
+        historyDiv.classList.add('history-card-in-js');
+        historyDiv.innerHTML = `
+            <div class="transraction-logo-balance flex gap-1">
+                <div class="transraction-logo w-[3rem] h-[3rem] bg-[#0808080d] flex justify-center items-center rounded-[50%]">
+                    ${data.ima}
+                </div>
+                <div class="bill">
+                    <h1 class="bill-type text-[16px] font-semibold text-[#080808b3]">${data.Name}</h1>
+                    <p class="bill-time text-[#080808b3] text-[12px]">${data.timeNow}</p>
+                </div>
+            </div>
+            <div class="tree-dot">
+                <i class="fa-solid fa-ellipsis-vertical"></i>
+            </div>
+            `
+        cardContainer.appendChild(historyDiv);
+    }
+})
