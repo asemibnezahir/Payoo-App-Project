@@ -23,17 +23,17 @@
     <script src="https://kit.fontawesome.com/5d7fc64a6a.js" crossorigin="anonymous"></script>
 
 </head>
-<body class="max-w-[450px] h-[100vh] mx-auto bg-[#f4f5f7] flex flex-col">
+<body class="max-w-[450px] mx-auto bg-[#f4f5f7] flex flex-col">
     <div class="common-part w-[445px] mx-auto bg-white rounded-b-2xl">
         <section class="profile px-[24px] pt-[24px] pb-[12px] flex justify-between items-center border-b border-[#0808081a]">
             <div class="logo-balance flex gap-1">
                 <div class="logo w-[3rem] h-[3rem]">
                     <img src="Payoo-MFS-Resources/assets/Group.png" alt="Logo">
                 </div>
-            </div>
-            <div class="balance">
-                <h1 class="dollar text-[18px] font-extrabold">$<span>45000</span></h1>
-                <p class="balance-desk text-[#08080880] text-[14px]">Available Balance</p>
+                <div class="balance">
+                    <h1 class="dollar text-[18px] font-extrabold">$<span id="stored-amount">45000</span></h1>
+                    <p class="balance-desk text-[#08080880] text-[14px]">Available Balance</p>
+                </div>
             </div>
             <div class="log-out">
                 <button type="reset" class="btn border-[#0808081a] rounded-[8px] text-[#08080880]">Log out<i class="fa-solid fa-arrow-right-from-bracket"></i></button>
@@ -46,11 +46,11 @@
         </section>
 
         <section class="service-menu p-[24px] pt-[0] grid grid-cols-3 gap-5">
-            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center">
+            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center" id="money-adding-menu">
                 <img src="Payoo-MFS-Resources/assets/wallet1.png" alt="Add_money">
                 <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Add Money</h4>
             </div>
-            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center">
+            <div class="menu-card w-[125px] h-[90px] border-2 border-[#0808081a] rounded-[12px] flex flex-col justify-center items-center" id="cashout-menu">
                 <img src="Payoo-MFS-Resources/assets/send1.png" alt="Cash-out">
                 <h4 class="card-title mt-[8px] text-[14px] text-[#080808b3] font-normal">Cashout</h4>
             </div>
@@ -72,5 +72,55 @@
             </div>
         </section>
     </div>
+
+
+    <!-- Add Money Portion -->
+    <div id="add_money" class="p-[24px]">
+        <h1 class="font-semibold text-[18px] text-[#080808e6] mb-[16px]">Add Money</h1>
+        <form class="bg-white w-[402px] mx-auto rounded-[24px] p-[32px] ">
+
+            <label for="Add-Select" class="text-[16px] font-medium text-[#080808b3]">Select A Bank</label><br>
+            <select class="select select-neutral rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0 text-[#080808b3] " id="Add-Select">
+                <option disabled selected value="">Select Bank</option>
+                <option>Janata Bank</option>
+                <option>Krishi Bank</option>
+                <option>Asia Bank</option>
+            </select>
+
+            <label for="ACC-number" class="text-[16px] font-medium text-[#080808b3]">Bank Account Number</label><br>
+            <input type="number" placeholder="Enter 11 digit account number" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="ACC-number"/><br>
+            
+            <label for="Add-Amount" class="text-[16px] font-medium text-[#080808b3]">Amount to Add</label><br>
+            <input type="number" placeholder="Enter your number" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="Add-Amount"/><br>
+            
+            <label for="bank-pin" class="text-[16px] font-medium text-[#080808b3]">Pin Number</label><br>
+            <input type="password" placeholder="Enter 4 Digit Pin Number" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="bank-pin"/><br>
+            
+            <button class="btn btn-active font-semibold text-[20px] py-[16px] text-center w-[338px] mx-auto rounded-[32px] bg-[#0874F2] text-white" id="add-submit">Add Money</button>
+        </form>
+    </div>
+
+
+    <!-- Cash Out Portion -->
+    <div id="cash-out" class="p-[24px]" style="display: none;">
+        <h1 class="font-semibold text-[18px] text-[#080808e6] mb-[16px]">Cash Out</h1>
+        <form class="bg-white w-[402px] mx-auto rounded-[24px] p-[32px] ">
+
+            <label for="agent-number" class="text-[16px] font-medium text-[#080808b3]">Agent Number</label><br>
+            <input type="number" placeholder="Enter 11 digit number" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="agent-number"/><br>
+            
+            <label for="out-amount" class="text-[16px] font-medium text-[#080808b3]">Amount</label><br>
+            <input type="number" placeholder="Enter amount to withdraw" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="out-amount"/><br>
+            
+            <label for="bank-pin-w" class="text-[16px] font-medium text-[#080808b3]">Pin Number</label><br>
+            <input type="password" placeholder="Enter 4 Digit Pin Number" class="input rounded-[30px] bg-[#f4f5f7] mb-[16px] mt-[12px] border-0" id="bank-pin-w"/><br>
+            
+            <button class="btn btn-active font-semibold text-[20px] py-[16px] text-center w-[338px] mx-auto rounded-[32px] bg-[#0874F2] text-white" id="withdraw-btn">Withdraw Money</button>
+        </form>
+    </div>
+
+
+    <!-- Adding External Javascript File -->
+    <script src="JS/home.js"></script>
 </body>
 </html>
