@@ -10,7 +10,7 @@ document.getElementById('_1st-login').addEventListener('click',function(event)
         const formPass = document.getElementById("Pass").value;
         if(formNum===num&&formPass===pass)
         {
-            console.log('Login Successfully');
+            window.location.href = './home.html';
         }
         else
         {

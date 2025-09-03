@@ -1,3 +1,10 @@
+// handling Log Out
+document.getElementById('log-out').addEventListener('click',function(e){
+    window.location.href = './index.html';
+})
+
+
+
 document.getElementById('money-adding-menu').addEventListener('click',function(){
     document.getElementById('add_money').style.display='block';
     document.getElementById('cash-out').style.display='none';
