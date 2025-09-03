@@ -3,80 +3,32 @@ document.getElementById('log-out').addEventListener('click',function(e){
     window.location.href = './index.html';
 })
 
+// Shared Function
+function displayORNot(secName)
+{
+    const cards = document.getElementsByClassName('menu-sections');
+    for(let card of cards)
+    {
+        card.classList.add('hidden');
+        card.classList.remove('block');
+    }
 
+    document.getElementById(secName).classList.remove('hidden');
+    document.getElementById(secName).classList.add('block');
+}
 
-document.getElementById('money-adding-menu').addEventListener('click',function(){
-    document.getElementById('add_money').style.display='block';
-    document.getElementById('cash-out').style.display='none';
-    document.getElementById('transfer').style.display='none';
-    document.getElementById('bonus').style.display='none';
-    document.getElementById('pay-bill').style.display='none';
-    document.getElementById('transaction-history').style.display='none';
-})
+// Menu Clicking Interactions Optimized
+document.getElementById('money-adding-menu').addEventListener('click',function(){displayORNot('add_money');})
 
-document.getElementById('cashout-menu').addEventListener('click',function(){
-    document.getElementById('add_money').style.display='none';
-    document.getElementById('cash-out').style.display='block';
-    document.getElementById('transfer').style.display='none';
-    document.getElementById('bonus').style.display='none';
-    document.getElementById('pay-bill').style.display='none';
-    document.getElementById('transaction-history').style.display='none';
-})
+document.getElementById('cashout-menu').addEventListener('click',function(){displayORNot('cash-out');})
 
-document.getElementById('transfer-menu').addEventListener('click',function(){
-    document.getElementById('cash-out').style.display='none';
-    document.getElementById('add_money').style.display='none';
-    document.getElementById('transfer').style.display='block';
-    document.getElementById('bonus').style.display='none';
-    document.getElementById('pay-bill').style.display='none';
-    document.getElementById('transaction-history').style.display='none';
-})
+document.getElementById('transfer-menu').addEventListener('click',function(){displayORNot('transfer');})
 
-document.getElementById('bonus-menu').addEventListener('click',function(){
-    document.getElementById('cash-out').style.display='none';
-    document.getElementById('add_money').style.display='none';
-    document.getElementById('transfer').style.display='none';
-    document.getElementById('bonus').style.display='block';
-    document.getElementById('pay-bill').style.display='none';
-    document.getElementById('transaction-history').style.display='none';
-})
+document.getElementById('bonus-menu').addEventListener('click',function(){displayORNot('bonus');})
 
-document.getElementById('pay-bill-menu').addEventListener('click',function(){
-    document.getElementById('cash-out').style.display='none';
-    document.getElementById('add_money').style.display='none';
-    document.getElementById('transfer').style.display='none';
-    document.getElementById('bonus').style.display='none';
-    document.getElementById('pay-bill').style.display='block';
-    document.getElementById('transaction-history').style.display='none';
-})
+document.getElementById('pay-bill-menu').addEventListener('click',function(){displayORNot('pay-bill');})
 
-document.getElementById('transaction-history-menu').addEventListener('click',function(){
-    document.getElementById('cash-out').style.display='none';
-    document.getElementById('add_money').style.display='none';
-    document.getElementById('transfer').style.display='none';
-    document.getElementById('bonus').style.display='none';
-    document.getElementById('pay-bill').style.display='none';
-    document.getElementById('transaction-history').style.display='block';
-})
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
+document.getElementById('transaction-history-menu').addEventListener('click',function(){displayORNot('transaction-history');})
 
 
 
@@ -87,22 +39,6 @@ document.getElementById('transaction-history-menu').addEventListener('click',fun
 
 // Transaction History Adding Feature 
 const transactionData =[];
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
 
 
 
